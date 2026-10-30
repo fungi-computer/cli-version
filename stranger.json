@@ -1,0 +1,51 @@
+{
+  "expectedTarballFiles": [
+    "package/LICENSE",
+    "package/README.md",
+    "package/dist/index.d.ts",
+    "package/dist/index.js",
+    "package/docs/api/README.md",
+    "package/docs/home.ts",
+    "package/package.json"
+  ],
+  "runtimeFixture": "test/stranger/runtime.mjs",
+  "typechecks": [
+    {
+      "fixture": "test/stranger/consumer.mts"
+    }
+  ],
+  "docs": {
+    "sigil": "restricted",
+    "home": {
+      "lead": "Check the installed Fungi CLI's version output in updater and deployment tooling.",
+      "example": {
+        "file": "home.ts",
+        "title": "Read and check a CLI version",
+        "caption": "Read the previous label for rollback, then check the current Fungi handshake."
+      },
+      "ladder": {
+        "start": [
+          {
+            "title": "Quickstart",
+            "href": "/quickstart/",
+            "description": "Install the package and check a version line."
+          }
+        ],
+        "tasks": [
+          {
+            "title": "Read rollback output",
+            "href": "/examples/",
+            "description": "Read either installed command label without accepting an old label for a new install."
+          }
+        ],
+        "reference": [
+          {
+            "title": "API reference",
+            "href": "/api/",
+            "description": "The version reader and exact installed-version check."
+          }
+        ]
+      }
+    }
+  }
+}
