@@ -1,10 +1,16 @@
 # Fungi CLI version output (`@fungi.computer/cli-version`)
 
-Read and check the installed Fungi CLI's version-output contract. The Spore
-updater and deployment launch smoke use the same root export, without reaching
-into an App's source or build directory.
+Cli-version checks the version that a Fungi command-line tool prints, so
+updaters and smoke tests do not have to guess the format.
 
-## Quickstart
+```mermaid
+flowchart LR
+  CLI[fungi --version] -->|prints| Text[fungi 0.7.0]
+  Text --> Check[cli-version]
+  Check -->|true or false| Caller[Spore updater or launch smoke]
+```
+
+## Quick start
 
 Requires Node.js 24 or later.
 
@@ -17,6 +23,29 @@ import { expectReportedVersion } from "@fungi.computer/cli-version";
 
 expectReportedVersion("fungi 0.7.0\n", "0.7.0"); // true
 ```
+
+## Common tasks
+
+### Check an installed version
+
+Call `expectReportedVersion` with the output and the version you expect, as in
+the Quickstart.
+
+### Understand what counts as a match
+
+See [Core concepts](#core-concepts).
+
+### Handle odd output
+
+See [Status and limits](#status-and-limits).
+
+## Reference
+
+### Overview
+
+Read and check the installed Fungi CLI's version-output contract. The Spore
+updater and deployment launch smoke use the same root export, without reaching
+into an App's source or build directory.
 
 ## Core concepts
 
